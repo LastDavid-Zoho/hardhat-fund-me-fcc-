@@ -1,0 +1,51 @@
+# The Ignore Code uses Linux style file paths
+#       You will need to replace \ with /
+#
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+#
+
+# Ignore Visual Studio Code generated files
+# -----------------------------------------
+# Ignore all files within the .vscode folder
+/.vscode
+# Ignore all files with the .code-workspace extension
+*.code-workspace
+
+# Ignore Dependencies
+# -------------------
+# Ignore NodeJS modules
+/node_modules
+# Ignore SharePoint, Graph, and Office 365 REST Dependencies
+/.pnp
+.pnp.js
+
+# Ignore local environment variable files 
+#   Sensitive or local machine specific values 
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Other Files and Directories to Ignore (Default when setting up Hardhat)
+# Ignore Common Testing and Production Directories and Files
+typechain
+typechain-types
+build
+
+# Ignore the Solidity\Wallet encrypted key json file
+.encryptedKey.json
+
+# Ignore Hardhat Build Directories and Testing Result files
+cache
+artifacts
+coverage
+deployments
+coverage.json
+gas-report.txt
+
+# Ignore Log Files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
