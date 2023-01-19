@@ -4,6 +4,7 @@ require("@nomiclabs/hardhat-etherscan")
 require("hardhat-gas-reporter")
 require("solidity-coverage")
 require("hardhat-deploy")
+// const { decrypt } = require("./utils/Key_Encryption") -- Cannot use this method because it requires Hardhat to already be running
 
 const { task } = require("hardhat/config")
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
@@ -19,14 +20,17 @@ const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "API_key"
 const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY || "API_key"
 
 // Extract Private Key from encrypted key file or dotenv
-const PRIVATE_KEY = process.env.PRIVATE_KEY || "0xKey"
+const GOERLI_DEPLOY_PRIVATE_KEY =
+    process.env.GOERLI_DEPLOY_PRIVATE_KEY || "0xKey"
+const GOERLI_ACCOUNT_1_PRIVATE_KEY =
+    process.env.GOERLI_ACCOUNT_1_PRIVATE_KEY || "0xKey"
 
 module.exports = {
     defaultNetwork: "hardhat",
     networks: {
         goerli: {
             url: RPC_URL_ALCHEMY_GOERLI,
-            accounts: [PRIVATE_KEY],
+            accounts: [GOERLI_DEPLOY_PRIVATE_KEY, GOERLI_ACCOUNT_1_PRIVATE_KEY],
             chainId: 5,
             blockConfirmations: 6
         },
